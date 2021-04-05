@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { connect } from "react-redux";
+
+import Form from "./js/components/Form";
+
+const select = (state) => {
+  return { articles: state.articles };
+};
+const ConnectedList = (props) => (
+  <ul>
+    {props.articles.map((el) => (
+      <li key={el.id}>{el.title}</li>
+    ))}
+  </ul>
+);
+
+const List = connect(select)(ConnectedList);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Articles List</h1>
+      <List />
+      <h1>Submit an Article</h1>
+      <Form />
     </div>
   );
 }
