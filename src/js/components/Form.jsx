@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { addArticle } from '../actions/index';
+import { addTodo } from '../actions/index';
 import { connect } from 'react-redux';
 
 function mapDispatchToProps(dispatch) {
     return {
-      addArticle: article => dispatch(addArticle(article))
+      addTodo: todo => dispatch(addTodo(todo))
     };
 }
 
@@ -17,17 +17,17 @@ const ConnectedForm = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.addArticle({ title });
+        props.addTodo({ title });
         setTitle('');
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="list" onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="title">Title</label>
+                <label htmlFor="title">Type your to-do's here!</label>
                 <input type="text" id="title" value={title} onChange={handleChange} />
             </div>
-            <button type="SUBMIT">Save</button>
+            <button type="SUBMIT">Add to your to-do list</button>
         </form>
     )
 }

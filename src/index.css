@@ -1,9 +1,19 @@
 .to-do-list-header {
-  font-size: 45pt;
+  font-size: 25pt;
   background-color: beige;
   width: 770px;
   text-align: center;
   font-family:fantasy;
   position: relative;
   left: 30%;
+}
+
+.list {
+  border: 2px solid rgb(182, 140, 67);
+  width: 400px;
+  margin: auto;
+}
+
+.form-titles {
+  padding-top: 3%;
 }

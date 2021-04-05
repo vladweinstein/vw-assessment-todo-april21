@@ -1,14 +1,14 @@
-import "./App.css";
+import "./index.css";
 import { connect } from "react-redux";
 
 import Form from "./js/components/Form";
 
 const select = (state) => {
-  return { articles: state.articles };
+  return { todo: state.todo };
 };
 const ConnectedList = (props) => (
-  <ul>
-    {props.articles.map((el) => (
+  <ul className="list">
+    {props.todo.map((el) => (
       <li key={el.id}>{el.title}</li>
     ))}
   </ul>
@@ -18,10 +18,10 @@ const List = connect(select)(ConnectedList);
 
 function App() {
   return (
-    <div className="App">
-      <h1>Articles List</h1>
+    <div className="to-do-list-header">
+      <h1 className ="form-titles">To-do List</h1>
       <List />
-      <h1>Submit an Article</h1>
+      <h1>Submit To-do item</h1>
       <Form />
     </div>
   );
