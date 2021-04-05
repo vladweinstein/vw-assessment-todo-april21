@@ -1,17 +1,18 @@
 import "./index.css";
-import { connect } from "react-redux";
+import "bootstrap/dist/css/bootstrap.min.css";
 
+import { connect } from "react-redux";
 import Form from "./js/components/Form";
 
 const select = (state) => {
   return { todo: state.todo };
 };
 const ConnectedList = (props) => (
-  <ul className="list">
+  <ol className="list">
     {props.todo.map((el) => (
       <li key={el.id}>{el.title}</li>
     ))}
-  </ul>
+  </ol>
 );
 
 const List = connect(select)(ConnectedList);
@@ -28,3 +29,4 @@ function App() {
 }
 
 export default App;
+
